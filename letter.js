@@ -10,10 +10,10 @@
 
 var Letter = function(character) {
   this.character = character; //guessed letter
-  this.guessed = ""; //true or false
+  this.guessed = false; //true or false
   this.guessReturn = function() {
     if (this.guessed === true) {
-      return (this.character);
+      return (this.character+" ");
     } else {
       return ("_ ");
     }
@@ -21,8 +21,6 @@ var Letter = function(character) {
   this.guessCheck = function(guessedLetter) {
     if (this.character === guessedLetter) {
       this.guessed = true;
-    } else {
-      this.guessed = false;
     }
   };
 };
