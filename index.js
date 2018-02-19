@@ -5,13 +5,13 @@ var lives = 5;
 var guessedLetters = [];
 var game = "";
 
-var wordBank = ["france", "belgium", "monaco", "quebec", "switzerland"];
+var wordBank = ["nantes france", "brussels belgium", "monaco monaco", "quebec canada", "bern switzerland"];
 
 
 var gameStart = function() {
   guessedLetters = [];
   randomWord = wordBank[Math.floor(Math.random()*wordBank.length)];
-  game = new word(randomWord);
+  game = new word.word(randomWord);
   console.log(" ---- New Word ---- ");
   game.returnWord();
   turn();
@@ -19,9 +19,14 @@ var gameStart = function() {
 
 var turn = function() {
   inquirer.prompt({type: "input", message: "Guess a letter!", name: "guess"}).then(function(response) {
+    if (word.alphabet.indexOf(response.guess.toLowerCase()) === -1) {
+      console.log("Please chose a proper letter");
+      turn();
+    }else{
     if (guessedLetters.indexOf(response.guess.toLowerCase()) === -1) {
       if (game.letters.indexOf(response.guess.toLowerCase()) === -1) {
         lives = lives - 1;
+        guessedLetters.push(response.guess.toLowerCase());
         console.log("Sorry, that letter is not in the word");
         console.log("Current lives:" + lives);
         if (lives >0) {
@@ -47,7 +52,8 @@ var turn = function() {
       game.returnWord();
       turn();
     }
-  });
+  }
+});
 };
 
 var restart = function(){
