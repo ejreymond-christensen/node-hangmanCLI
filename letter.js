@@ -8,21 +8,20 @@
 
 //A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
 
-var Letter = function (character){
+var Letter = function(character) {
   this.character = character; //guessed letter
-  this.guessed =""; //true or false
-  this.guessReturn = function(){
-    if (this.guessed === true){
-      console.log(this.character);
-    }
-    else {
-      console.log("_ ");
+  this.guessed = ""; //true or false
+  this.guessReturn = function() {
+    if (this.guessed === true) {
+      return (this.character);
+    } else {
+      return ("_ ");
     }
   };
-  this.guessCheck = function(wordLetter, guessedLetter){
-    if (wordLetter === guessedLetter) {
+  this.guessCheck = function(guessedLetter) {
+    if (this.character === guessedLetter) {
       this.guessed = true;
-    }else{
+    } else {
       this.guessed = false;
     }
   };
