@@ -1,0 +1,27 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Hangman game for the CLI via node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejreymond-christensen/ut-node-hangmanCLI.git"
+  },
+  "keywords": [
+    "hangman",
+    "cli",
+    "node"
+  ],
+  "author": "elliot reymond-christensen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejreymond-christensen/ut-node-hangmanCLI/issues"
+  },
+  "homepage": "https://github.com/ejreymond-christensen/ut-node-hangmanCLI#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0"
+  }
+}
