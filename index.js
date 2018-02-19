@@ -2,11 +2,16 @@ var word = require("./word.js");
 var inquirer = require("inquirer");
 
 var lives = 5;
-guessedLetters = [];
+var guessedLetters = [];
 var game = "";
 
+var wordBank = ["france", "belgium", "monaco", "quebec", "switzerland"];
+
+
 var gameStart = function() {
-  game = new word("france");
+  guessedLetters = [];
+  randomWord = wordBank[Math.floor(Math.random()*wordBank.length)];
+  game = new word(randomWord);
   console.log(" ---- New Word ---- ");
   game.returnWord();
   turn();
@@ -30,7 +35,12 @@ var turn = function() {
         guessedLetters.push(response.guess.toLowerCase());
         game.guess(response.guess.toLowerCase());
         game.returnWord();
-        turn();
+        if (game.currentIteration.indexOf("_ ") === -1) {
+          console.log("You win!");
+          gameStart();
+        }else{
+          turn();
+        }
       }
     } else {
       console.log("Sorry, but that letter has already been played");

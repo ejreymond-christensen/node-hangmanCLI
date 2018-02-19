@@ -10,6 +10,7 @@ var Letter = require("./letter.js");
 var Word = function(currentWord) {
   this.letters = currentWord.split("");
   this.newLettersArray = [];
+  this.currentIteration = "";
   for (var i = 0; i < this.letters.length; i++) {
     var character= new Letter(this.letters[i]);
     this.newLettersArray.push(character);
@@ -19,6 +20,7 @@ var Word = function(currentWord) {
     for (var i = 0; i < this.newLettersArray.length; i++) {
       displayWord = displayWord + this.newLettersArray[i].guessReturn();
     }
+    this.currentIteration = displayWord;
     console.log(displayWord);
   };
   this.guess = function(guessedLetter) {
