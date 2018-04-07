@@ -1,5 +1,5 @@
 # node-hangmanCLI
- a hangman command-line game using constructor functions
+ a hangman command-line game using constructor functions.
  
  ### Rugby World Cup Hangman
 This is a hangman game that is run through the terminal with node.
